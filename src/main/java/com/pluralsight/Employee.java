@@ -7,7 +7,7 @@ public class Employee {
     private double hoursWorked;
     private double payRate;
 
-    public Employee(int employeeId, String name, int hoursWorked, double payRate) {
+    public Employee(int employeeId, String name, double hoursWorked, double payRate) {
         this.employeeId = employeeId;
         this.name = name;
         this.hoursWorked = hoursWorked;
@@ -48,10 +48,10 @@ public class Employee {
 
     public double getGrossPay() {
         if (hoursWorked <= 40) {
-            return payRate * hoursWorked;
+            return this.payRate * this.hoursWorked;
         } else {
-            double normalPay = 40 * payRate;
-            double overtimePay = (hoursWorked - 40) * payRate * 1.5;
+            double normalPay = 40 * this.payRate;
+            double overtimePay = (this.hoursWorked - 40) * this.payRate * 1.5;
             return normalPay + overtimePay;
         }
     }

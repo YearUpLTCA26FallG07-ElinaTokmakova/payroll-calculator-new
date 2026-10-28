@@ -14,8 +14,8 @@ public class Main {
             String input;
 
             //create file writer = open the file
-            FileWriter writer = new FileWriter(createdFile + "csv");
-            writer.write("id|name|gross pay");
+            FileWriter writer = new FileWriter(createdFile);
+            writer.write("id|name|gross pay\n");
 
             bufReader.readLine(); //skip first line in employees.csv
 
@@ -75,7 +75,8 @@ public class Main {
 
             //create object
             Employee employee = new Employee(employeeId, name, hoursWorked, payRate);
-            writer.write(employee.getEmployeeId() + employee.getName() + employee.getGrossPay());
+            String output = employee.getEmployeeId() + "|" + employee.getName() + "|" + Math.round(employee.getGrossPay() * 100.0) / 100.0 + "\n";
+            writer.write(output);
 
         } catch (Exception e) {
             System.out.println("An unexpected error occurred.");
